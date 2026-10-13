@@ -19,11 +19,7 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: clip;
 }
-img, svg, video { display: block; max-width: 100%; height: auto; }
-a, button { -webkit-tap-highlight-color: transparent; }
 ::selection { background: var(--color-gold-light); color: var(--color-night); }
 
 :focus-visible {
@@ -38,8 +34,7 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-stopped { overflow: hidden; }
 
 @layer components {
-  .wrap { max-width: 72rem; margin-inline: auto; padding-inline: 1rem; }
-  @media (min-width: 640px) { .wrap { padding-inline: 1.25rem; } }
+  .wrap { max-width: 72rem; margin-inline: auto; padding-inline: 1.25rem; }
   @media (min-width: 768px) { .wrap { padding-inline: 2rem; } }
 
   .eyebrow {
@@ -55,16 +50,10 @@ html.lenis, html.lenis body { height: auto; }
 
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-    padding: 0.8rem 1.4rem; min-height: 2.75rem; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.01em;
+    padding: 0.8rem 1.4rem; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.01em;
     border: 1px solid transparent; border-radius: 2px;
     transition: background-color .2s, color .2s, border-color .2s;
     cursor: pointer; text-align: center;
-  }
-  @media (max-width: 640px) {
-    .btn {
-      width: 100%;
-      justify-content: center;
-    }
   }
   .btn-gold { background: var(--color-gold); color: var(--color-night); }
   .btn-gold:hover { background: var(--color-gold-light); }

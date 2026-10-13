@@ -15,8 +15,8 @@ export default function CtaBand({ title = "Tell us what you need to arrange.", t
           <h2 className="h-display mt-4 text-4xl md:text-5xl">{title}</h2>
           <p className="mt-5 text-white/70">{text}</p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <WhatsAppButton className="sm:w-auto" />
-            <Link href="/services" className="btn btn-line-light sm:w-auto">View services</Link>
+            <WhatsAppButton />
+            <Link href="/services" className="btn btn-line-light">View services</Link>
           </div>
         </Reveal>
       </div>

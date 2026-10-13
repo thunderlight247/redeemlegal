@@ -22,7 +22,6 @@ export default function Photo({ src, alt = "", className = "", aspect = "", abso
           src={src}
           alt={alt}
           fill
-          unoptimized
           priority={priority}
           sizes="(min-width: 1024px) 1100px, 100vw"
           className="object-cover"

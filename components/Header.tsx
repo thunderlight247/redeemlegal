@@ -33,11 +33,11 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur">
-      <div className="wrap flex h-16 items-center justify-between gap-3 sm:gap-4">
-        <Link href="/" className="flex min-w-0 items-center gap-3" aria-label={`${site.name} home`}>
+      <div className="wrap flex h-16 items-center justify-between gap-4">
+        <Link href="/" className="flex items-center gap-3" aria-label={`${site.name} home`}>
           <Logo size={44} priority />
-          <span className="hidden min-w-0 leading-tight sm:block">
-            <span className="block truncate font-display text-lg font-semibold">{site.shortName}</span>
+          <span className="hidden leading-tight sm:block">
+            <span className="block font-display text-lg font-semibold">{site.shortName}</span>
             <span className="block text-[0.68rem] uppercase tracking-[0.16em] text-muted">and Legal Consult</span>
           </span>
         </Link>
@@ -64,7 +64,7 @@ export default function Header() {
           <button
             ref={toggleRef}
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center border border-line text-ink transition-colors hover:bg-ivory md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center border border-line md:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -76,18 +76,18 @@ export default function Header() {
       </div>
 
       <div id="mobile-menu" hidden={!open} className="border-t border-line bg-white md:hidden">
-        <nav aria-label="Mobile" className="wrap flex flex-col gap-1 py-3">
+        <nav aria-label="Mobile" className="wrap flex flex-col py-3">
           {navLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               aria-current={isActive(l.href) ? "page" : undefined}
-              className={`rounded-sm border-b border-line px-1 py-3 text-base ${isActive(l.href) ? "font-semibold text-gold-deep" : ""}`}
+              className={`border-b border-line py-3 text-base ${isActive(l.href) ? "font-semibold text-gold-deep" : ""}`}
             >
               {l.label}
             </Link>
           ))}
-          <WhatsAppButton variant="dark" className="mt-3 w-full sm:w-auto">Enquire on WhatsApp</WhatsAppButton>
+          <WhatsAppButton variant="dark" className="mt-4">Enquire on WhatsApp</WhatsAppButton>
         </nav>
       </div>
     </header>

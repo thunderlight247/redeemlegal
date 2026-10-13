@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="About" title="A documentation services provider in Ashaiman">
-        Redeem Publication and Legal Consult supports clients with legal documentation and related services, with an emphasis on accuracy, trust and responsive service.
+      <PageHero eyebrow="About" title="Two mandates, one vision: law and knowledge">
+        Redeem Publication and Legal Consult is a registered business based at the Ashaiman Old District Court, operating as Commissioner for Oaths Services and as a publishing house.
       </PageHero>
 
       <section className="bg-white">
@@ -25,7 +25,10 @@ export default function AboutPage() {
           <Reveal className="md:col-span-7">
             <h2 className="h-display text-4xl">Business overview</h2>
             <p className="mt-5 leading-relaxed text-muted">
-              Redeem is based in Ashaiman, Greater Accra, and presents its work under the name Commissioner for Oaths Services. Its services cover affidavits and statutory declarations, deeds and powers of attorney, gazette-related matters, publication, filing and documentation, and paralegal consultation and training.
+              Redeem has offices in Ashaiman, Goshen and Tema. Its business name was registered under the Registration of Business Names Act, 1962 on 31 August 2022. On the legal side it supports clients with documentation and Commissioner for Oaths services, from affidavits and statutory declarations to deeds, name changes, gazette matters and attestation. On the publication side it researches, writes and publishes educational, religious and motivational books, and offers ghostwriting, editing, proofreading and self-publishing guidance.
+            </p>
+            <p className="mt-4 leading-relaxed text-muted">
+              <span className="font-semibold text-ink">Our mission:</span> to redeem lives through accessible legal services and life-transforming publications. <span className="font-semibold text-ink">Our motto:</span> <em>Redeeming Society Through Law and Knowledge.</em>
             </p>
             <p className="mt-4 leading-relaxed text-muted">
               Redeem is a documentation and legal support provider. It is not presented here as a law firm, and its role is to help with documents and processes rather than to represent clients or decide how an official body will respond.
@@ -44,21 +47,75 @@ export default function AboutPage() {
         <div className="wrap grid items-center gap-12 py-20 md:grid-cols-12 md:py-24">
           <Reveal className="md:col-span-4">
             <Image
-              src="/images/commissioner-portrait.jpg"
-              width={355}
-              height={510}
-              alt="Caleb Dickens, Commissioner for Oaths at Redeem Publication and Legal Consult"
-              className="h-auto w-full max-w-sm"
+              src="/images/caleb-dickens-cutout.jpg"
+              width={720}
+              height={1080}
+              alt="Caleb Dickens, Commissioner for Oaths, smiling with arms folded"
+              className="mx-auto h-auto w-full max-w-sm mix-blend-multiply"
             />
           </Reveal>
           <Reveal className="md:col-span-8">
             <p className="eyebrow">Commissioner for Oaths</p>
             <h2 className="h-display mt-4 text-4xl md:text-5xl">Caleb Dickens</h2>
             <p className="mt-5 leading-relaxed text-muted">
-              Caleb Dickens is the Commissioner for Oaths associated with Redeem. The business states that he is appointed by the Chief Justice of the Republic of Ghana to administer oaths and affirmations.
+              Caleb Dickens was appointed a Commissioner for Oaths by the Chief Justice of the Republic of Ghana on 8 June 2020, under Regulation 56 of the Judicial Service Regulations, 1963 (L.I. 319). The appointment is to discharge the duties assigned to that office by the laws of Ghana or by the practice thereof.
             </p>
             <p className="mt-4 leading-relaxed text-muted">
-              The scope of this role depends on the document and its intended use. Please ask the business to confirm what can be done for your particular document before you proceed.
+              What can be done for a particular document depends on the document and its intended use. Please ask the business to confirm this before you proceed.
+            </p>
+            <p className="mt-4 leading-relaxed text-muted">
+              Caleb is from Akuapem Mampong in the Eastern Region. He is also a teacher and a publisher. He holds a B.A. (Hons) in Geography and Resource Development with Political Science from the University of Ghana, and a certificate in Phonetics and Basic Presentation Skills from the Ghana Broadcasting Corporation Radio Training School.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="wrap py-20 md:py-24">
+          <Reveal className="max-w-2xl">
+            <p className="eyebrow">Credentials</p>
+            <h2 className="h-display mt-4 text-4xl">Documents you can inspect</h2>
+            <p className="mt-4 text-muted">Select a document to open it at full size.</p>
+          </Reveal>
+          <Reveal stagger className="mt-10 grid gap-10 sm:grid-cols-2">
+            {[
+              { src: "/images/appointment-certificate.jpg", w: 760, h: 1080, cap: "Appointment as Commissioner for Oaths, Chief Justice of Ghana, 8 June 2020", alt: "Certificate appointing Caleb Dickens a Commissioner for Oaths, signed by the Chief Justice of Ghana" },
+              { src: "/images/business-registration.jpg", w: 720, h: 1045, cap: "Certificate of registration of the business name, 31 August 2022 (tax number removed)", alt: "Certificate of registration of the business name Redeem Publication and Legal Consult under the Registration of Business Names Act, 1962" },
+            ].map((d) => (
+              <figure key={d.src}>
+                <a href={d.src} target="_blank" rel="noopener noreferrer" className="block border border-line p-2 transition-colors hover:border-gold">
+                  <Image src={d.src} width={d.w} height={d.h} alt={d.alt} className="h-auto w-full" />
+                  <span className="sr-only">(opens full size in a new tab)</span>
+                </a>
+                <figcaption className="mt-3 text-sm text-muted">{d.cap}</figcaption>
+              </figure>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-ivory">
+        <div className="wrap grid items-center gap-12 py-20 md:grid-cols-12 md:py-24">
+          <Reveal className="md:col-span-7">
+            <Image
+              src="/images/office-wall.jpg"
+              width={1040}
+              height={780}
+              alt="Wall of the Redeem main office showing the framed appointment and registration certificates, the business signboard and a framed portrait of Caleb Dickens"
+              className="h-auto w-full"
+            />
+          </Reveal>
+          <Reveal className="md:col-span-5">
+            <p className="eyebrow">Our main office</p>
+            <h2 className="h-display mt-4 text-4xl">A calm, organised place to sort your paperwork</h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted">
+              The main office is inside the Ashaiman Old District Court, arranged for private consultations, document preparation and affidavit services.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              Staff can explain things in English, Twi or Ga, for clients in Ghana and abroad.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              Redeem is a paralegal and Commissioner for Oaths consult, not a law firm. Where legal representation is required, clients are referred to partner law firms.
             </p>
           </Reveal>
         </div>

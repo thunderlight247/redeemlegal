@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import { site } from "@/lib/site";
+import { areasServed, site } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description:
-    "Documentation, publication and filing support, affidavits, deeds, gazette-related enquiries and paralegal consultation in Ashaiman, Greater Accra, Ghana. Enquire on WhatsApp.",
+    "Commissioner for Oaths services, affidavits, deeds, attestation and notarisation, gazette-related enquiries and book publishing in Ashaiman, Greater Accra, Ghana. Enquire on WhatsApp.",
   openGraph: {
     title: site.name,
     description: "Professional documentation services and clear guidance in Ashaiman, Ghana.",
@@ -31,19 +31,30 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {
-  themeColor: "#191713",
-  width: "device-width",
-  initialScale: 1,
-  viewportFit: "cover",
-};
+export const viewport: Viewport = { themeColor: "#191713" };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: site.name,
   telephone: "+233530463052",
-  address: { "@type": "PostalAddress", addressLocality: "Ashaiman", addressRegion: "Greater Accra", addressCountry: "GH" },
+  email: site.email,
+  areaServed: areasServed.map((a) => ({ "@type": "Place", name: a })),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.addressShort,
+    addressLocality: "Ashaiman",
+    addressRegion: "Greater Accra",
+    addressCountry: "GH",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "07:00",
+      closes: "16:00",
+    },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

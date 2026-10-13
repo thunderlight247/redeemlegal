@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { MapPin, MessageCircle, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import Logo from "./Logo";
-import { navLinks, site, whatsappLink } from "@/lib/site";
+import { navLinks, offices, site, whatsappLink } from "@/lib/site";
 import { services } from "@/lib/services";
 
 export default function Footer() {
@@ -13,7 +13,7 @@ export default function Footer() {
           <Logo size={88} />
           <p className="mt-5 font-display text-2xl font-semibold text-white">{site.name}</p>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/65">
-            Documentation, publication and filing support, with clear guidance for clients in Ghana and abroad.
+            Commissioner for Oaths services and book publishing. Redeeming society through law and knowledge.
           </p>
         </div>
 
@@ -30,9 +30,10 @@ export default function Footer() {
         <nav aria-label="Footer services" className="md:col-span-3">
           <p className="eyebrow eyebrow-light mb-4">Services</p>
           <ul className="space-y-3 text-sm">
-            {services.map((s) => (
+            {services.slice(0, 8).map((s) => (
               <li key={s.slug}><Link href={`/services/${s.slug}`} className="hover:text-gold-light">{s.title}</Link></li>
             ))}
+            <li><Link href="/services" className="text-gold-light">All services</Link></li>
           </ul>
         </nav>
 
@@ -41,7 +42,18 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             <li><a href={site.phoneHref} className="flex items-center gap-2 hover:text-gold-light"><Phone className="h-4 w-4 text-gold" aria-hidden="true" />{site.phoneDisplay}</a></li>
             <li><a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-gold-light"><MessageCircle className="h-4 w-4 text-gold" aria-hidden="true" />WhatsApp enquiry</a></li>
-            <li><a href={site.mapsHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-gold-light"><MapPin className="h-4 w-4 text-gold" aria-hidden="true" />{site.location}</a></li>
+            {offices.map((o) => (
+              <li key={o.name} className="flex items-start gap-2">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
+                <a href={o.mapsHref} target="_blank" rel="noopener noreferrer" className="hover:text-gold-light">
+                  <span className="text-white">{o.name}</span>
+                  <br />
+                  {o.detail}
+                </a>
+              </li>
+            ))}
+            <li><a href={site.emailHref} className="flex items-center gap-2 hover:text-gold-light"><Mail className="h-4 w-4 text-gold" aria-hidden="true" />{site.email}</a></li>
+            <li className="text-white/60">{site.hours}</li>
           </ul>
         </div>
       </div>
@@ -50,7 +62,7 @@ export default function Footer() {
         <div className="wrap flex flex-col gap-3 py-6 text-xs text-white/50 md:flex-row md:justify-between">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
           <p className="max-w-xl">
-            Information on this website is general and is not legal advice. Redeem is not the publisher of the Ghana Gazette and does not decide whether any document is accepted by an official body.
+            Information on this website is general and is not legal advice. Redeem is a paralegal and Commissioner for Oaths consult, not a law firm. Redeem is not the publisher of the Ghana Gazette and does not decide whether any document is accepted by an official body.
           </p>
         </div>
       </div>

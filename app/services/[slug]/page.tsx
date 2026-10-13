@@ -10,6 +10,7 @@ import CtaBand from "@/components/CtaBand";
 import { getService, services } from "@/lib/services";
 import { site } from "@/lib/site";
 import Photo from "@/components/Photo";
+import Books from "@/components/Books";
 import { images } from "@/lib/images";
 
 export const dynamicParams = false;
@@ -38,6 +39,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="wrap grid gap-14 py-16 md:py-20 lg:grid-cols-12">
           <div className="space-y-14 lg:col-span-8">
             <Photo src={images.services[service.slug]} aspect="aspect-[16/7]" />
+            <Reveal>
+              <h2 className="h-display text-3xl md:text-4xl">{service.documentsLabel ?? "Documents we commonly assist with"}</h2>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {service.documents.map((d) => (
+                  <li key={d} className="border border-line bg-ivory px-3.5 py-2 text-sm">{d}</li>
+                ))}
+              </ul>
+            </Reveal>
+
+            {service.slug === "book-writing-and-publishing" ? <Books /> : null}
+
             <Reveal>
               <h2 className="h-display text-3xl md:text-4xl">What this generally concerns</h2>
               {service.concerns.map((p) => (<p key={p} className="mt-4 leading-relaxed text-muted">{p}</p>))}
