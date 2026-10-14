@@ -11,11 +11,12 @@ export default function Books() {
         {books.map((b) => (
           <li key={b.title} className="flex gap-5 border-t border-gold pt-5">
             {b.cover ? (
-              <Image src={b.cover.src} width={b.cover.w} height={b.cover.h} alt={`Cover of ${b.title}`} className="h-auto w-24 shrink-0 self-start shadow-md" />
+              <Image src={b.cover.src} width={b.cover.w} height={b.cover.h} alt={`Cover of ${b.title}`} className="h-auto w-28 shrink-0 self-start shadow-md" />
             ) : null}
             <div>
               {b.series ? <p className="eyebrow">{b.series}</p> : null}
               <h3 className="mt-1 font-display text-xl font-semibold leading-snug">{b.title}</h3>
+              <p className="mt-1 text-xs text-muted">By {b.author}{b.publishedByRedeem ? ", published by Redeem" : ""}</p>
               <p className="mt-2 text-sm leading-relaxed text-muted">{b.blurb}</p>
             </div>
           </li>

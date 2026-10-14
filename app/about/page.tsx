@@ -16,14 +16,14 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="About" title="Two mandates, one vision: law and knowledge">
+      <PageHero eyebrow="About" title="Two Mandates, One Vision: Law and Knowledge">
         Redeem Publication and Legal Consult is a registered business based at the Ashaiman Old District Court, operating as Commissioner for Oaths Services and as a publishing house.
       </PageHero>
 
       <section className="bg-white">
         <div className="wrap grid items-start gap-12 py-20 md:grid-cols-12 md:py-24">
           <Reveal className="md:col-span-7">
-            <h2 className="h-display text-4xl">Business overview</h2>
+            <h2 className="h-display text-4xl">Business Overview</h2>
             <p className="mt-5 leading-relaxed text-muted">
               Redeem has offices in Ashaiman, Goshen and Tema. Its business name was registered under the Registration of Business Names Act, 1962 on 31 August 2022. On the legal side it supports clients with documentation and Commissioner for Oaths services, from affidavits and statutory declarations to deeds, name changes, gazette matters and attestation. On the publication side it researches, writes and publishes educational, religious and motivational books, and offers ghostwriting, editing, proofreading and self-publishing guidance.
             </p>
@@ -47,11 +47,11 @@ export default function AboutPage() {
         <div className="wrap grid items-center gap-12 py-20 md:grid-cols-12 md:py-24">
           <Reveal className="md:col-span-4">
             <Image
-              src="/images/caleb-dickens-cutout.jpg"
-              width={720}
-              height={1080}
-              alt="Caleb Dickens, Commissioner for Oaths, smiling with arms folded"
-              className="mx-auto h-auto w-full max-w-sm mix-blend-multiply"
+              src="/images/caleb-dickens-studio.jpg"
+              width={880}
+              height={1184}
+              alt="Caleb Dickens, Commissioner for Oaths, in a dark suit and tie"
+              className="mx-auto h-auto w-full max-w-sm shadow-lg"
             />
           </Reveal>
           <Reveal className="md:col-span-8">
@@ -66,6 +66,9 @@ export default function AboutPage() {
             <p className="mt-4 leading-relaxed text-muted">
               Caleb is from Akuapem Mampong in the Eastern Region. He is also a teacher and a publisher. He holds a B.A. (Hons) in Geography and Resource Development with Political Science from the University of Ghana, and a certificate in Phonetics and Basic Presentation Skills from the Ghana Broadcasting Corporation Radio Training School.
             </p>
+            <p className="mt-4 leading-relaxed text-muted">
+              He is the author of the Commissioners for Oaths Handbook, a legal handbook written for Commissioners for Oaths.
+            </p>
           </Reveal>
         </div>
       </section>
@@ -74,7 +77,7 @@ export default function AboutPage() {
         <div className="wrap py-20 md:py-24">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Credentials</p>
-            <h2 className="h-display mt-4 text-4xl">Documents you can inspect</h2>
+            <h2 className="h-display mt-4 text-4xl">Documents You Can Inspect</h2>
             <p className="mt-4 text-muted">Select a document to open it at full size.</p>
           </Reveal>
           <Reveal stagger className="mt-10 grid gap-10 sm:grid-cols-2">
@@ -107,7 +110,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal className="md:col-span-5">
             <p className="eyebrow">Our main office</p>
-            <h2 className="h-display mt-4 text-4xl">A calm, organised place to sort your paperwork</h2>
+            <h2 className="h-display mt-4 text-4xl">A Calm and Organised Office to Sort Your Paperwork</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               The main office is inside the Ashaiman Old District Court, arranged for private consultations, document preparation and affidavit services.
             </p>
@@ -125,9 +128,9 @@ export default function AboutPage() {
         <div className="wrap py-20 md:py-24">
           <Reveal stagger className="grid gap-10 md:grid-cols-3">
             {[
-              { icon: Users, t: "How we assist clients", d: "You describe what you need, and the business confirms requirements, fees and next steps before you proceed. Communication is direct, and WhatsApp is the main enquiry channel." },
-              { icon: ShieldCheck, t: "Commitment to accurate information", d: "This site gives general information only. Where something depends on your circumstances or on the rules that apply, we say so and encourage you to confirm with the business." },
-              { icon: Globe, t: "Ghana and the diaspora", d: "People in Ghana and abroad can enquire. Whether a step can be handled remotely depends on the document and procedure, and is confirmed on enquiry." },
+              { icon: Users, t: "How We Assist Clients", d: "You describe what you need, and the business confirms requirements, fees and next steps before you proceed. Communication is direct, and WhatsApp is the main enquiry channel." },
+              { icon: ShieldCheck, t: "Commitment to Accurate Information", d: "This site gives general information only. Where something depends on your circumstances or on the rules that apply, we say so and encourage you to confirm with the business." },
+              { icon: Globe, t: "Ghana and the Diaspora", d: "People in Ghana and abroad can enquire. Whether a step can be handled remotely depends on the document and procedure, and is confirmed on enquiry." },
             ].map((x) => (
               <div key={x.t} className="border-t border-gold pt-6">
                 <x.icon className="h-6 w-6 text-gold-deep" strokeWidth={1.5} aria-hidden="true" />
@@ -139,7 +142,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <CtaBand title="Have a question about your documents?" />
+      <CtaBand title="Have a Question About Your Documents?" />
     </>
   );
 }

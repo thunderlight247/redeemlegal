@@ -3,10 +3,10 @@ import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import EnquiryBuilder from "@/components/EnquiryBuilder";
-import { areasServed, languages, offices, site, whatsappLink } from "@/lib/site";
+import { areasServed, languages, offices, site, socials, whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact and offices",
+  title: "Contact and Offices",
   description: "Contact Redeem Publication and Legal Consult by WhatsApp, phone or email. Offices in Ashaiman (main), Goshen (Sebrepor) and Tema (Michel Camp).",
 };
 
@@ -53,6 +53,16 @@ export default function ContactPage() {
             </ul>
             <p className="mt-5 text-sm text-muted">Hours may differ between offices. Please message first to confirm that someone is available before you visit.</p>
             <p className="mt-2 text-sm text-muted">Staff can explain things in {languages.join(", ")}.</p>
+            <p className="mt-2 text-sm text-muted">
+              Follow Redeem on{" "}
+              {socials.map((s, i) => (
+                <span key={s.name}>
+                  {i > 0 ? " and " : ""}
+                  <a href={s.href} target="_blank" rel="noopener noreferrer" className="font-medium text-gold-deep underline underline-offset-4">{s.name}<span className="sr-only"> (opens in a new tab)</span></a>
+                </span>
+              ))}
+              .
+            </p>
           </Reveal>
           <Reveal><EnquiryBuilder /></Reveal>
         </div>
@@ -62,7 +72,7 @@ export default function ContactPage() {
         <div className="wrap py-16 md:py-20">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Our offices</p>
-            <h2 className="h-display mt-3 text-4xl">Find the office nearest you</h2>
+            <h2 className="h-display mt-3 text-4xl">Find the Office Nearest You</h2>
           </Reveal>
           <Reveal stagger className="mt-10 grid gap-6 md:grid-cols-3">
             {offices.map((o) => (
@@ -78,7 +88,7 @@ export default function ContactPage() {
             ))}
           </Reveal>
           <Reveal className="mt-12 border-t border-line pt-8">
-            <h3 className="font-display text-2xl font-semibold">Areas we serve</h3>
+            <h3 className="font-display text-2xl font-semibold">Areas We Serve</h3>
             <p className="mt-2 text-sm text-muted">Clients regularly visit from {areasServed.join(", ")} and the surrounding communities.</p>
           </Reveal>
         </div>

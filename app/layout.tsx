@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import { areasServed, site } from "@/lib/site";
+import { areasServed, site, socials } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -39,6 +39,7 @@ const jsonLd = {
   name: site.name,
   telephone: "+233530463052",
   email: site.email,
+  sameAs: socials.map((s) => s.href),
   areaServed: areasServed.map((a) => ({ "@type": "Place", name: a })),
   address: {
     "@type": "PostalAddress",

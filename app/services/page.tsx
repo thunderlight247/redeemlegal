@@ -19,11 +19,11 @@ function Tiles({ list }: { list: Service[] }) {
     <Reveal stagger className="grid gap-px border border-line bg-line md:grid-cols-2">
       {list.map((s) => (
         <Link key={s.slug} href={`/services/${s.slug}`} className="group flex flex-col bg-white p-8 transition-colors hover:bg-ivory">
-          <Photo src={images.services[s.slug]} aspect="aspect-[16/9]" className="mb-6" />
+          <Photo src={images.services[s.slug]} aspect="aspect-[16/9]" className="mb-6" focus={images.focus[s.slug]} />
           <ServiceIcon name={s.icon} className="h-7 w-7 text-gold-deep" />
           <h3 className="mt-5 font-display text-3xl font-semibold leading-tight">{s.title}</h3>
           <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{s.short}</p>
-          <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-gold-deep">Read more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></span>
+          <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-gold-deep">Read More <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" /></span>
         </Link>
       ))}
     </Reveal>
@@ -40,7 +40,7 @@ export default function ServicesPage() {
 
   return (
     <>
-      <PageHero eyebrow="Services" title="Law and knowledge, in one office">
+      <PageHero eyebrow="Services" title="Law and Knowledge, in One Office">
         Legal documentation services and a publishing house. Choose an area to read more, look up your document below, or send a WhatsApp enquiry if you are not sure where it fits.
       </PageHero>
 
@@ -48,19 +48,19 @@ export default function ServicesPage() {
         <div className="wrap py-16 md:py-20">
           <Reveal>
             <p className="eyebrow">Our legal mandate</p>
-            <h2 className="h-display mt-3 text-3xl md:text-4xl">Documentation and Commissioner for Oaths services</h2>
+            <h2 className="h-display mt-3 text-3xl md:text-4xl">Documentation and Commissioner for Oaths Services</h2>
           </Reveal>
           <div className="mt-8"><Tiles list={legal} /></div>
 
           <Reveal className="mt-20">
             <p className="eyebrow">Our publication mandate</p>
-            <h2 className="h-display mt-3 text-3xl md:text-4xl">A house of knowledge</h2>
+            <h2 className="h-display mt-3 text-3xl md:text-4xl">A House of Knowledge</h2>
           </Reveal>
           <div className="mt-8"><Tiles list={publication} /></div>
 
           <Reveal className="mt-20">
             <p className="eyebrow">Find your document</p>
-            <h2 className="h-display mt-3 text-3xl md:text-4xl">Documents people commonly ask about</h2>
+            <h2 className="h-display mt-3 text-3xl md:text-4xl">Documents People Commonly Ask About</h2>
             <ul className="mt-8 grid gap-x-10 border-t border-line sm:grid-cols-2">
               {finder.map((x) => (
                 <li key={x.d + x.slug} className="border-b border-line">

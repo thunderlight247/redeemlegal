@@ -59,3 +59,9 @@ export const offices = [
 export const areasServed = ["Ashaiman", "Tema", "Sakumono", "Golf City", "Bediako", "Afienya", "Dawhenya"] as const;
 
 export const languages = ["English", "Twi", "Ga"] as const;
+
+/** Social profiles supplied by the client. The Facebook link is a share link to a post; replace with the page link when available. */
+export const socials = [
+  { name: "Facebook", href: "https://www.facebook.com/share/p/19YczcNvFK/" },
+  { name: "TikTok", href: "https://www.tiktok.com/@commissioner.dick" },
+] as const;

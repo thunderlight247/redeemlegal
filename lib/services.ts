@@ -23,6 +23,10 @@ export type Service = {
   documents: string[];
   /** Heading for the documents list when it is not about documents (e.g. publishing). */
   documentsLabel?: string;
+  /** Example documents shown on the page (personal details must be covered). */
+  /** Numbered list of procedures/matters with short descriptions. */
+  procedures?: { title: string; text: string; href?: string }[];
+  exhibits?: { src: string; w: number; h: number; alt: string; caption: string }[];
   short: string;
   intro: string;
   concerns: string[];
@@ -36,6 +40,16 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "affidavits-and-statutory-declarations",
+    exhibits: [
+      {
+        src: "/images/sample-statutory-declaration.jpg",
+        w: 913,
+        h: 1280,
+        alt: "Sample statutory declaration confirming that several names refer to the same person, commissioned by Caleb Dickens, with the declarant's personal details covered",
+        caption:
+          "A sample statutory declaration confirming that different names refer to the same person, commissioned by Caleb Dickens. The declarant's personal details are covered.",
+      },
+    ],
     documents: [
       "Affidavits",
       "Statutory declarations",
@@ -111,6 +125,24 @@ export const services: Service[] = [
   },
   {
     slug: "gazette-related-services",
+    exhibits: [
+      {
+        src: "/images/gazette-contents.jpg",
+        w: 976,
+        h: 1280,
+        alt: "Cover and contents page of the Ghana Gazette No. 336 of 16 September 2026, listing change of names and corrections of dates and places of birth",
+        caption:
+          "The Ghana Gazette of 16 September 2026. Its contents include change of names and corrections of dates and places of birth.",
+      },
+      {
+        src: "/images/gazette-change-of-names.jpg",
+        w: 1280,
+        h: 810,
+        alt: "Pages of the Ghana Gazette of 16 September 2026 showing change of name notices for many people",
+        caption:
+          "A page of change of name notices in the Ghana Gazette. The Gazette publishes the notices of many people together.",
+      },
+    ],
     documents: ["Gazette notices", "Gazette-related applications and follow-up"],
     title: "Gazette-Related Services",
     icon: "Newspaper",
@@ -508,7 +540,7 @@ export const services: Service[] = [
     slug: "book-writing-and-publishing",
     title: "Book Writing and Publishing",
     icon: "BookOpen",
-    documentsLabel: "Books and materials we publish",
+    documentsLabel: "Books and Materials We Publish",
     documents: [
       "Educational books: simplified notes, Q&A, past questions and research guides, basic to tertiary",
       "Religious books: Christian literature, sermon notes, devotionals and church manuals",
@@ -548,7 +580,7 @@ export const services: Service[] = [
     slug: "ghostwriting-editing-and-self-publishing",
     title: "Ghostwriting, Editing and Self-Publishing Consultancy",
     icon: "PenLine",
-    documentsLabel: "What we help with",
+    documentsLabel: "What We Help With",
     documents: ["Ghostwriting", "Editing", "Proofreading", "Self-publishing consultancy"],
     short:
       "Professional help for authors, churches, schools and organisations that have a message but need support to bring it to print.",
@@ -582,6 +614,19 @@ export const services: Service[] = [
   },
   {
     slug: "court-proceedings-support",
+    procedures: [
+      { title: "Writ of Summons", text: "We assist clients to prepare, type and process a writ of summons for civil matters: debt recovery, breach of contract, land disputes and money claims." },
+      { title: "Letters of Administration (L.A.) and Probate", text: "We assist families to prepare the affidavits, consents and gazette publications required for letters of administration and probate applications, when a loved one dies intestate or with a will.", href: "/services/wills-estates-and-court-documents" },
+      { title: "Divorce Petition", text: "Support with divorce filing: preparing the petition for divorce, custody and property settlement affidavits, and guidance on court filing. Sensitive matters are handled with care." },
+      { title: "Child Custody and Maintenance", text: "We assist mothers and fathers to file for child custody and child maintenance at the Family Tribunal." },
+      { title: "Adoption and Guardianship", text: "Documentation and affidavit support for adoption and guardianship processes." },
+      { title: "Change of Name, Age Correction and Deed Poll", text: "We prepare and gazette your change of name, correction of date of birth and deed poll, for legal and travel purposes.", href: "/services/change-of-name-and-personal-records" },
+      { title: "Tenancy and Landlord Disputes", text: "We draft tenancy agreements and quit notices, and assist landlords and tenants with rent recovery proceedings at the Rent Control and District Court.", href: "/services/property-land-and-vehicle-documents" },
+      { title: "Affidavits for Court", text: "All types of court affidavits, including loss of documents, age, marriage, support, travel, lost phone and bank.", href: "/services/affidavits-and-statutory-declarations" },
+      { title: "Statutory Declarations and Oaths", text: "Commissioning of oaths and declarations for court and administrative use.", href: "/services/affidavits-and-statutory-declarations" },
+      { title: "Land and Property Matters", text: "Preparation of search reports, indentures, transfer of title documents and declarations of title.", href: "/services/property-land-and-vehicle-documents" },
+      { title: "Small Claims and Debt Recovery", text: "We help small businesses and individuals prepare demand notices and file for debt recovery." },
+    ],
     title: "Court Proceedings Support",
     icon: "ClipboardList",
     documents: [
@@ -596,7 +641,7 @@ export const services: Service[] = [
     short:
       "Paralegal support with preparing, typing, commissioning and filing documents for a range of court matters.",
     intro:
-      "Court processes involve a lot of paperwork. Redeem provides paralegal support, documentation and filing assistance for civil, family and tenancy matters, so your documents are properly prepared before they reach the court.",
+      "Court processes involve a lot of paperwork. From its main office at the Ashaiman Old District Court, Redeem provides paralegal support, documentation and filing assistance for civil, family and tenancy matters, so your documents are properly prepared before they reach the court.",
     concerns: [
       "Support means preparing and typing documents, commissioning affidavits and declarations, and helping with filing at the relevant court or tribunal. Redeem also helps small businesses and individuals prepare demand notices for debt recovery.",
       "Redeem does not hold itself out as a lawyer. Where legal representation is required, clients are referred to partner law firms. Courts and tribunals alone decide every matter.",

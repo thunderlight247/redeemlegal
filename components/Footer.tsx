@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import Logo from "./Logo";
-import { navLinks, offices, site, whatsappLink } from "@/lib/site";
+import CoatOfArms from "./CoatOfArms";
+import { navLinks, offices, site, socials, whatsappLink } from "@/lib/site";
 import { services } from "@/lib/services";
 
 export default function Footer() {
@@ -10,7 +11,10 @@ export default function Footer() {
       <div className="hairline-gold" />
       <div className="wrap grid gap-12 py-16 md:grid-cols-12">
         <div className="md:col-span-4">
-          <Logo size={88} />
+          <div className="flex items-center gap-4">
+            <Logo size={88} />
+            <CoatOfArms size={76} />
+          </div>
           <p className="mt-5 font-display text-2xl font-semibold text-white">{site.name}</p>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/65">
             Commissioner for Oaths services and book publishing. Redeeming society through law and knowledge.
@@ -23,7 +27,7 @@ export default function Footer() {
             {navLinks.map((l) => (
               <li key={l.href}><Link href={l.href} className="hover:text-gold-light">{l.label}</Link></li>
             ))}
-            <li><Link href="/privacy" className="hover:text-gold-light">Privacy (draft)</Link></li>
+            <li><Link href="/privacy" className="hover:text-gold-light">Privacy (Draft)</Link></li>
           </ul>
         </nav>
 
@@ -33,7 +37,7 @@ export default function Footer() {
             {services.slice(0, 8).map((s) => (
               <li key={s.slug}><Link href={`/services/${s.slug}`} className="hover:text-gold-light">{s.title}</Link></li>
             ))}
-            <li><Link href="/services" className="text-gold-light">All services</Link></li>
+            <li><Link href="/services" className="text-gold-light">All Services</Link></li>
           </ul>
         </nav>
 
@@ -54,6 +58,13 @@ export default function Footer() {
             ))}
             <li><a href={site.emailHref} className="flex items-center gap-2 hover:text-gold-light"><Mail className="h-4 w-4 text-gold" aria-hidden="true" />{site.email}</a></li>
             <li className="text-white/60">{site.hours}</li>
+            <li className="flex gap-5 pt-1">
+              {socials.map((s) => (
+                <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-gold-light">
+                  {s.name}<span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              ))}
+            </li>
           </ul>
         </div>
       </div>
@@ -62,7 +73,7 @@ export default function Footer() {
         <div className="wrap flex flex-col gap-3 py-6 text-xs text-white/50 md:flex-row md:justify-between">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
           <p className="max-w-xl">
-            Information on this website is general and is not legal advice. Redeem is a paralegal and Commissioner for Oaths consult, not a law firm. Redeem is not the publisher of the Ghana Gazette and does not decide whether any document is accepted by an official body.
+            Information on this website is general and is not legal advice. Redeem is a paralegal and Commissioner for Oaths consult, not a law firm. This is the website of a private business, not an official government website. Redeem is not the publisher of the Ghana Gazette and does not decide whether any document is accepted by an official body.
           </p>
         </div>
       </div>

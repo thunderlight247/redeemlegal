@@ -10,10 +10,11 @@ type Props = {
   aspect?: string; // e.g. "aspect-[16/9]"; omit when absolutely positioned
   absolute?: boolean;
   priority?: boolean;
+  focus?: string; // CSS object-position, e.g. "50% 25%"
 };
 
 /** Toned photo with a graceful fallback panel if the image fails to load. */
-export default function Photo({ src, alt = "", className = "", aspect = "", absolute = false, priority = false }: Props) {
+export default function Photo({ src, alt = "", className = "", aspect = "", absolute = false, priority = false, focus }: Props) {
   const [failed, setFailed] = useState(false);
   return (
     <div className={`${absolute ? "absolute inset-0" : "relative"} overflow-hidden bg-ink ${aspect} ${className}`}>
@@ -25,6 +26,7 @@ export default function Photo({ src, alt = "", className = "", aspect = "", abso
           priority={priority}
           sizes="(min-width: 1024px) 1100px, 100vw"
           className="object-cover"
+          style={focus ? { objectPosition: focus } : undefined}
           onError={() => setFailed(true)}
         />
       )}

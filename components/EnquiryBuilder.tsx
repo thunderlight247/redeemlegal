@@ -21,7 +21,7 @@ export default function EnquiryBuilder() {
 
   return (
     <div className="border border-line bg-white p-6 md:p-8">
-      <h2 className="font-display text-3xl font-semibold">Prepare a WhatsApp enquiry</h2>
+      <h2 className="font-display text-3xl font-semibold">Prepare a WhatsApp Enquiry</h2>
       <p className="mt-2 text-sm text-muted">
         Choose a topic and we will prepare your message. Nothing is sent from this page; WhatsApp opens so you can review and send it yourself.
       </p>
@@ -39,7 +39,7 @@ export default function EnquiryBuilder() {
           <input id="name" value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" className="w-full border border-line px-3 py-3 text-sm" />
         </div>
         <a href={whatsappLink(message)} target="_blank" rel="noopener noreferrer" className="btn btn-dark w-full">
-          <MessageCircle className="h-4 w-4" aria-hidden="true" /> Open WhatsApp with this message
+          <MessageCircle className="h-4 w-4" aria-hidden="true" /> Open WhatsApp with This Message
           <span className="sr-only"> (opens in a new tab)</span>
         </a>
       </div>

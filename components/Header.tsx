@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
+import CoatOfArms from "./CoatOfArms";
 import WhatsAppButton from "./WhatsAppButton";
 import { navLinks, site } from "@/lib/site";
 
@@ -36,6 +37,7 @@ export default function Header() {
       <div className="wrap flex h-16 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3" aria-label={`${site.name} home`}>
           <Logo size={44} priority />
+          <CoatOfArms size={40} />
           <span className="hidden leading-tight sm:block">
             <span className="block font-display text-lg font-semibold">{site.shortName}</span>
             <span className="block text-[0.68rem] uppercase tracking-[0.16em] text-muted">and Legal Consult</span>
