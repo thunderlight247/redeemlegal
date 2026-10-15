@@ -16,6 +16,10 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
+  // Optional: set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel to verify with Google Search Console using the HTML tag method.
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
   title: {
     default: `${site.name} | Documentation services in Ashaiman, Ghana`,
     template: `%s | ${site.name}`,

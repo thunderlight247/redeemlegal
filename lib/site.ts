@@ -14,7 +14,7 @@ export const site = {
   hours: "Monday to Friday, 7:00 am to 4:00 pm",
   email: "calebdickens212@gmail.com",
   emailHref: "mailto:calebdickens212@gmail.com",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://redeemlegalconsult.com",
 } as const;
 
 export const defaultMessage =

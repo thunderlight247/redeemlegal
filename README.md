@@ -14,6 +14,34 @@ npm run build && npm start
 
 Fonts (Cormorant Garamond, Inter) load through `next/font/google` at build time and are self-hosted afterwards, with system fallbacks.
 
+## Sanity CMS setup
+
+The Sanity Studio is available at `/studio`; published articles appear on `/blog`
+and `/blog/[slug]`.
+
+1. Create a project at [sanity.io/manage](https://www.sanity.io/manage) and note
+   its project ID. Create or select the `production` dataset.
+2. In the project root, create `.env.local` with:
+
+   ```dotenv
+   NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id
+   NEXT_PUBLIC_SANITY_DATASET=production
+   NEXT_PUBLIC_SANITY_API_VERSION=2026-10-15
+   ```
+
+   Replace `your-project-id` with the ID from Sanity. The API version is pinned
+   to keep queries predictable; update it deliberately when changing API versions.
+3. Restart the development server after changing environment variables, then
+   open `http://localhost:3000/studio` and sign in with a Sanity account that
+   has access to the project.
+4. Create an **Articles & Publications** document, fill in the required title,
+   slug, category, and publication date, add the article body, then publish it.
+   Published articles will be listed at `/blog`.
+
+The dataset is queried publicly, so published content can be read without a
+token. Do not add a Sanity write token to `NEXT_PUBLIC_*` variables or commit
+`.env.local`.
+
 ## Structure
 
 - `app/`: routes: `/`, `/about`, `/services`, `/services/[slug]` (six pages from one template), `/contact`, `/privacy` (draft), sitemap, robots
