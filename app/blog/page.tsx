@@ -10,9 +10,11 @@ export default async function BlogPage() {
   return (
     <main>
       <PageHero
+        eyebrow="Legal Publications"
         title="Legal Publications & Insights"
-        subtitle="Stay updated with our latest legal updates, commercial guidance, and publication articles."
-      />
+      >
+        Stay updated with our latest legal updates, commercial guidance, and publication articles.
+      </PageHero>
       <section className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles.map((article) => (

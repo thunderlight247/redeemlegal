@@ -4,7 +4,7 @@ import config from '../../../sanity.config'
 export const dynamic = 'force-static'
 
 export function generateStaticParams() {
-  return NextStudio.generateStaticParams()
+  return [{ tool: [] }]
 }
 
 export function generateMetadata() {
