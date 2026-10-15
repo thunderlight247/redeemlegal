@@ -98,11 +98,6 @@ export default async function ArticlePage({
     notFound()
   }
 
-  const mainImageUrl =
-    article.mainImage?.asset?._id
-      ? urlFor(article.mainImage as SanityImageSource).width(1200).height(675).fit('crop').url()
-      : article.mainImage?.asset?.url ?? null
-
   return (
     <main className="bg-sand/20 min-h-screen">
       <PageHero
@@ -142,15 +137,14 @@ export default async function ArticlePage({
           {/* Main Article Content */}
           <article className="lg:col-span-8">
             <div className="rounded-2xl border border-line bg-white p-6 sm:p-10 shadow-sm">
-              {mainImageUrl && (
-                <div className="mb-8 overflow-hidden rounded-xl border border-line bg-sand">
+              {article.mainImage && article.mainImage.asset && (
+                <div className="relative my-6 h-72 w-full overflow-hidden rounded-lg shadow-md md:h-96">
                   <Image
-                    src={mainImageUrl}
                     alt={article.title}
-                    width={1200}
-                    height={675}
+                    className="object-cover"
+                    fill
                     priority
-                    className="w-full h-auto object-cover"
+                    src={article.mainImage.asset.url || urlFor(article.mainImage as SanityImageSource).url()}
                   />
                 </div>
               )}

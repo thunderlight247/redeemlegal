@@ -186,20 +186,23 @@ export default async function HomePage() {
 
       {/* Who */}
       <section className="bg-ivory">
-        <div className="wrap grid items-center gap-12 py-20 md:grid-cols-2 md:py-24">
-          <Reveal className="overflow-hidden rounded-xl shadow-md">
-            <Image
-              src={images.who}
-              alt="Redeem legal consultation office"
-              width={688}
-              height={912}
-              className="h-auto w-full object-cover"
-            />
+        <div className="wrap grid items-center gap-12 py-20 md:grid-cols-12 md:py-24">
+          <Reveal className="flex justify-center md:col-span-5">
+            <div className="w-full max-w-sm overflow-hidden rounded-2xl border border-line bg-white p-2.5 shadow-lg">
+              <Image
+                src={images.who}
+                alt="Redeem legal consultation office"
+                width={688}
+                height={912}
+                className="h-auto w-full rounded-xl object-contain"
+                priority
+              />
+            </div>
           </Reveal>
-          <Reveal className="flex flex-col justify-center">
+          <Reveal className="flex flex-col justify-center md:col-span-7">
             <p className="eyebrow">Who we assist</p>
             <h2 className="h-display mt-4 text-4xl md:text-5xl">Clients in Ghana and Abroad</h2>
-            <p className="mt-5 leading-relaxed text-muted">
+            <p className="mt-5 text-lg leading-relaxed text-muted">
               Individuals in Ghana, and Ghanaians and others living abroad, may enquire about the documentation processes relevant to them.
             </p>
             <p className="mt-4 leading-relaxed text-muted">
