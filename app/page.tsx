@@ -159,8 +159,17 @@ export default async function HomePage() {
       {/* Commissioner */}
       <section className="bg-white">
         <div className="wrap grid items-center gap-12 py-20 md:grid-cols-12 md:py-24">
-          <Reveal className="md:col-span-5">
-            <Image src="/images/caleb-dickens-suit.jpg" width={896} height={1195} alt="Caleb Dickens in a dark suit and tie, outdoors" className="h-auto w-full max-w-md" />
+          <Reveal className="flex justify-center md:col-span-5 md:justify-start">
+            <div className="overflow-hidden rounded-xl shadow-lg">
+              <Image
+                src="/images/caleb-dickens-suit.jpg"
+                width={672}
+                height={904}
+                alt="Caleb Dickens, Commissioner for Oaths, in a dark suit and tie"
+                className="h-auto w-full max-w-sm object-cover object-top"
+                priority
+              />
+            </div>
           </Reveal>
           <Reveal className="md:col-span-7">
             <p className="eyebrow">Your Commissioner for Oaths</p>
@@ -194,7 +203,7 @@ export default async function HomePage() {
             </Link>
           </Reveal>
           <Reveal className="md:col-span-2">
-            <Photo src={images.who} aspect="aspect-[21/9]" />
+            <Photo src={images.who} aspect="aspect-[16/9]" focus="50% 30%" />
           </Reveal>
         </div>
       </section>

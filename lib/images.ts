@@ -26,5 +26,6 @@ export const images = {
   focus: {
     "marriage-family-and-travel-attestations": "50% 22%",
     "attestation-and-notarisation-of-documents": "50% 30%",
+    "contracts-agreements-and-business-documents": "50% 30%",
   } as Record<string, string>,
 } as const;
