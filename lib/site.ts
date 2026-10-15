@@ -12,8 +12,8 @@ export const site = {
   address: "Inside the Ashaiman Old District Court, Ashaiman, Greater Accra, Ghana",
   addressShort: "Inside the Ashaiman Old District Court",
   hours: "Monday to Friday, 7:00 am to 4:00 pm",
-  email: "calebdickens212@gmail.com",
-  emailHref: "mailto:calebdickens212@gmail.com",
+  email: "redeemlegalconsult@gmail.com",
+  emailHref: "mailto:redeemlegalconsult@gmail.com",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://redeemlegalconsult.com",
 } as const;
 

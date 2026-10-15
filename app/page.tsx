@@ -186,13 +186,20 @@ export default async function HomePage() {
 
       {/* Who */}
       <section className="bg-ivory">
-        <div className="wrap grid gap-10 py-20 md:grid-cols-2 md:py-24">
-          <Reveal>
+        <div className="wrap grid items-center gap-12 py-20 md:grid-cols-2 md:py-24">
+          <Reveal className="overflow-hidden rounded-xl shadow-md">
+            <Image
+              src={images.who}
+              alt="Redeem legal consultation office"
+              width={688}
+              height={912}
+              className="h-auto w-full object-cover"
+            />
+          </Reveal>
+          <Reveal className="flex flex-col justify-center">
             <p className="eyebrow">Who we assist</p>
             <h2 className="h-display mt-4 text-4xl md:text-5xl">Clients in Ghana and Abroad</h2>
-          </Reveal>
-          <Reveal>
-            <p className="leading-relaxed text-muted">
+            <p className="mt-5 leading-relaxed text-muted">
               Individuals in Ghana, and Ghanaians and others living abroad, may enquire about the documentation processes relevant to them.
             </p>
             <p className="mt-4 leading-relaxed text-muted">
@@ -201,9 +208,6 @@ export default async function HomePage() {
             <Link href="/services/diaspora-documentation-assistance" className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-gold-deep">
               Documentation Assistance from Abroad <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
-          </Reveal>
-          <Reveal className="md:col-span-2">
-            <Photo src={images.who} aspect="aspect-[16/9]" focus="50% 30%" />
           </Reveal>
         </div>
       </section>

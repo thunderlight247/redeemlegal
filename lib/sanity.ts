@@ -17,6 +17,17 @@ export function urlFor(source: SanityImageSource) {
   return builder.image(source)
 }
 
+export interface SanityImageAsset {
+  _id: string
+  url: string
+}
+
+export interface SanityImage {
+  asset?: SanityImageAsset
+  hotspot?: { x: number; y: number }
+  crop?: object
+}
+
 export interface Article {
   _id: string
   title: string
@@ -24,7 +35,7 @@ export interface Article {
   category: string
   author?: string
   publishedAt: string
-  mainImage?: SanityImageSource
+  mainImage?: SanityImage
   excerpt?: string
   body?: PortableTextBlock[]
 }
@@ -42,7 +53,12 @@ export async function getArticles(): Promise<Article[]> {
         category,
         author,
         publishedAt,
-        mainImage,
+        mainImage {
+          asset-> {
+            _id,
+            url
+          }
+        },
         excerpt
       }`
     )
@@ -65,7 +81,12 @@ export async function getFeaturedArticles(limit = 3): Promise<Article[]> {
         category,
         author,
         publishedAt,
-        mainImage,
+        mainImage {
+          asset-> {
+            _id,
+            url
+          }
+        },
         excerpt
       }`,
       { limit }
@@ -89,7 +110,12 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
         category,
         author,
         publishedAt,
-        mainImage,
+        mainImage {
+          asset-> {
+            _id,
+            url
+          }
+        },
         excerpt,
         body
       }`,

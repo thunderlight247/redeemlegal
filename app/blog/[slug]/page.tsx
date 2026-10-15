@@ -5,7 +5,7 @@ import { ArrowLeft, Calendar, Phone, ShieldCheck, User } from 'lucide-react'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import PageHero from '@/components/PageHero'
 import WhatsAppButton from '@/components/WhatsAppButton'
-import { getArticleBySlug, urlFor } from '@/lib/sanity'
+import { getArticleBySlug, urlFor, type SanityImageSource } from '@/lib/sanity'
 import { site } from '@/lib/site'
 
 export const revalidate = 60
@@ -98,9 +98,10 @@ export default async function ArticlePage({
     notFound()
   }
 
-  const mainImageUrl = article.mainImage
-    ? urlFor(article.mainImage).width(1200).height(675).fit('crop').url()
-    : null
+  const mainImageUrl =
+    article.mainImage?.asset?._id
+      ? urlFor(article.mainImage as SanityImageSource).width(1200).height(675).fit('crop').url()
+      : article.mainImage?.asset?.url ?? null
 
   return (
     <main className="bg-sand/20 min-h-screen">
