@@ -1,4 +1,6 @@
-export default {
+import type { Rule } from 'sanity'
+
+const article = {
   name: 'article',
   title: 'Articles & Publications',
   type: 'document',
@@ -7,14 +9,14 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: (Rule: any) => Rule.required().max(120),
+      validation: (rule: Rule) => rule.required().max(120),
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: { source: 'title', maxLength: 96 },
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     },
     {
       name: 'category',
@@ -29,13 +31,19 @@ export default {
           { title: 'General Legal Insights', value: 'insights' },
         ],
       },
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
+    },
+    {
+      name: 'author',
+      title: 'Author / Counsel',
+      type: 'string',
+      initialValue: 'Redeem Legal Editorial Team',
     },
     {
       name: 'publishedAt',
       title: 'Published At',
       type: 'datetime',
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     },
     {
       name: 'mainImage',
@@ -57,3 +65,5 @@ export default {
     },
   ],
 }
+
+export default article

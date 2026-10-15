@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, ClipboardCheck, Clock, MapPin, MessageSquareText } from "lucide-react";
+import { ArrowRight, BookOpen, Calendar, CheckCircle2, ClipboardCheck, Clock, MapPin, MessageSquareText, User } from "lucide-react";
 import Logo from "@/components/Logo";
 import Reveal from "@/components/Reveal";
 import ServiceIcon from "@/components/ServiceIcon";
@@ -10,6 +10,7 @@ import Photo from "@/components/Photo";
 import { images } from "@/lib/images";
 import { areasServed, offices } from "@/lib/site";
 import { services } from "@/lib/services";
+import { getFeaturedArticles, urlFor } from "@/lib/sanity";
 
 const values = [
   { icon: ClipboardCheck, title: "Accuracy", text: "Careful attention to the details that documents depend on, and clear information about what is needed." },
@@ -31,7 +32,9 @@ const guides = [
   { q: "Preparing for a Documentation Enquiry", a: "Note what the document is for, who will receive it, any deadline, and what you already hold. If you are abroad, mention that too. Do not send identification numbers until the business has confirmed how to share them." },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const featuredArticles = await getFeaturedArticles(3);
+
   return (
     <>
       {/* Hero */}
@@ -262,6 +265,119 @@ export default function HomePage() {
           <Link href="/contact" className="mt-8 inline-flex items-center gap-1 text-sm font-semibold text-gold-deep">
             Directions and Contact <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
+        </div>
+      </section>
+
+      {/* Latest Legal Insights & Publications */}
+      <section className="border-t border-line bg-sand/30">
+        <div className="wrap py-20 md:py-24">
+          <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <Reveal className="max-w-2xl">
+              <p className="eyebrow">Legal Insights & Updates</p>
+              <h2 className="h-display mt-4 text-4xl md:text-5xl">Latest Legal Insights & Publications</h2>
+              <p className="mt-4 text-muted">
+                Authoritative commentary, practical documentation advice, and legal insights from the Redeem editorial and counsel team.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <Link href="/blog" className="btn btn-gold inline-flex items-center gap-2 whitespace-nowrap text-sm">
+                View All Articles <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Reveal>
+          </div>
+
+          {featuredArticles.length > 0 ? (
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {featuredArticles.map((article) => {
+                const imageUrl = article.mainImage
+                  ? urlFor(article.mainImage).width(720).height(480).fit('crop').url()
+                  : null;
+
+                return (
+                  <article
+                    key={article._id}
+                    className="group flex flex-col overflow-hidden rounded-xl border border-line bg-white transition-all hover:border-gold hover:shadow-md"
+                  >
+                    {imageUrl ? (
+                      <Link
+                        href={`/blog/${article.slug.current}`}
+                        className="relative block aspect-[16/10] overflow-hidden bg-sand"
+                      >
+                        <Image
+                          src={imageUrl}
+                          alt={article.title}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      </Link>
+                    ) : (
+                      <div className="relative flex aspect-[16/10] items-center justify-center border-b border-line bg-sand/60">
+                        <BookOpen className="h-10 w-10 text-gold-deep/40" aria-hidden="true" />
+                      </div>
+                    )}
+
+                    <div className="flex flex-1 flex-col p-6">
+                      <div className="mb-3">
+                        <span className="inline-block rounded bg-sand px-2.5 py-1 text-[0.72rem] font-semibold uppercase tracking-wider text-gold-deep">
+                          {article.category}
+                        </span>
+                      </div>
+
+                      <h3 className="font-display text-xl font-semibold text-ink transition-colors group-hover:text-gold-deep">
+                        <Link href={`/blog/${article.slug.current}`}>{article.title}</Link>
+                      </h3>
+
+                      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted">
+                        {article.author && (
+                          <span className="inline-flex items-center gap-1.5">
+                            <User className="h-3.5 w-3.5 text-gold-deep" aria-hidden="true" />
+                            {article.author}
+                          </span>
+                        )}
+                        <span className="inline-flex items-center gap-1.5">
+                          <Calendar className="h-3.5 w-3.5 text-gold-deep" aria-hidden="true" />
+                          {new Date(article.publishedAt).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                          })}
+                        </span>
+                      </div>
+
+                      {article.excerpt && (
+                        <p className="mt-4 flex-1 text-sm leading-relaxed text-muted line-clamp-3">
+                          {article.excerpt}
+                        </p>
+                      )}
+
+                      <div className="mt-6 border-t border-line pt-4">
+                        <Link
+                          href={`/blog/${article.slug.current}`}
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-gold-deep transition-colors group-hover:text-ink"
+                        >
+                          Read Article <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                        </Link>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="rounded-xl border border-line bg-white p-8 text-center sm:p-12">
+              <BookOpen className="mx-auto h-10 w-10 text-gold-deep/60" aria-hidden="true" />
+              <h3 className="mt-3 font-display text-2xl font-semibold text-ink">Authoritative Legal Publications</h3>
+              <p className="mx-auto mt-2 max-w-lg text-sm text-muted">
+                Explore our upcoming publications, guides, and articles on Ghanaian statutory declarations, gazette processes, and corporate compliance.
+              </p>
+              <div className="mt-6">
+                <Link href="/blog" className="btn btn-gold text-xs">
+                  Browse Publications Hub
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
