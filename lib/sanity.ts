@@ -1,6 +1,9 @@
 import { createClient } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
 
+import type { PortableTextBlock } from 'sanity'
+import type { SanityImageSource } from '@sanity/image-url'
+
 export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
@@ -10,7 +13,7 @@ export const client = createClient({
 
 const builder = imageUrlBuilder(client)
 
-export function urlFor(source: any) {
+export function urlFor(source: SanityImageSource) {
   return builder.image(source)
 }
 
@@ -20,9 +23,9 @@ export interface Article {
   slug: { current: string }
   category: string
   publishedAt: string
-  mainImage?: any
+  mainImage?: SanityImageSource
   excerpt?: string
-  body?: any
+  body?: PortableTextBlock[]
 }
 
 export async function getArticles(): Promise<Article[]> {
