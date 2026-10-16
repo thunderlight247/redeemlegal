@@ -1,6 +1,7 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import article from './sanity/schemas/article'
+import comment from './sanity/schemas/comment'
 
 export default defineConfig({
   name: 'default',
@@ -10,6 +11,6 @@ export default defineConfig({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   plugins: [structureTool()],
   schema: {
-    types: [article],
+    types: [article, comment],
   },
 })

@@ -5,7 +5,8 @@ import { ArrowLeft, Calendar, Phone, ShieldCheck, User } from 'lucide-react'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import PageHero from '@/components/PageHero'
 import WhatsAppButton from '@/components/WhatsAppButton'
-import { getArticleBySlug, urlFor, type SanityImageSource } from '@/lib/sanity'
+import CommentForm from '@/components/CommentForm'
+import { getApprovedComments, getArticleBySlug, urlFor, type SanityImageSource } from '@/lib/sanity'
 import { site } from '@/lib/site'
 
 export const revalidate = 60
@@ -98,6 +99,8 @@ export default async function ArticlePage({
     notFound()
   }
 
+  const comments = await getApprovedComments(article._id)
+
   return (
     <main className="bg-sand/20 min-h-screen">
       <PageHero
@@ -164,6 +167,49 @@ export default async function ArticlePage({
                   <p className="text-muted italic">This publication does not contain body content yet.</p>
                 )}
               </div>
+
+              <section
+                aria-labelledby="discussion-heading"
+                className="mt-12 max-w-4xl rounded-2xl border border-line bg-white p-6 shadow-sm sm:p-10"
+              >
+                <div className="border-b border-line pb-5">
+                  <p className="eyebrow">Join the conversation</p>
+                  <h2 id="discussion-heading" className="mt-2 font-display text-3xl font-semibold text-ink">
+                    Discussion
+                  </h2>
+                </div>
+
+                <div className="divide-y divide-line">
+                  {comments.length > 0 ? (
+                    comments.map((comment) => (
+                      <article key={comment._id} className="py-6 first:pt-6">
+                        <div className="flex flex-wrap items-baseline justify-between gap-2">
+                          <h3 className="font-semibold text-ink">{comment.name}</h3>
+                          <time className="text-xs text-muted" dateTime={comment.createdAt}>
+                            {new Date(comment.createdAt).toLocaleDateString('en-US', {
+                              year: 'numeric',
+                              month: 'long',
+                              day: 'numeric',
+                            })}
+                          </time>
+                        </div>
+                        <p className="mt-3 whitespace-pre-wrap text-sm leading-relaxed text-slate-700">
+                          {comment.comment}
+                        </p>
+                      </article>
+                    ))
+                  ) : (
+                    <p className="py-6 text-sm text-muted">
+                      There are no approved comments yet. Start the discussion.
+                    </p>
+                  )}
+                </div>
+
+                <div className="mt-2 border-t border-line pt-7">
+                  <h3 className="font-display text-2xl font-semibold text-ink">Leave a comment</h3>
+                  <CommentForm articleId={article._id} />
+                </div>
+              </section>
             </div>
           </article>
 

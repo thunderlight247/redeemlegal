@@ -40,6 +40,13 @@ export interface Article {
   body?: PortableTextBlock[]
 }
 
+export interface ArticleComment {
+  _id: string
+  name: string
+  comment: string
+  createdAt: string
+}
+
 export async function getArticles(): Promise<Article[]> {
   if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
     return []
@@ -124,5 +131,27 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
   } catch (err) {
     console.error(`Error fetching article "${slug}" from Sanity:`, err)
     return null
+  }
+}
+
+export async function getApprovedComments(articleId: string): Promise<ArticleComment[]> {
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+    return []
+  }
+
+  try {
+    return await client.fetch(
+      `*[_type == "comment" && article._ref == $articleId && approved == true]
+        | order(createdAt asc){
+          _id,
+          name,
+          comment,
+          createdAt
+        }`,
+      { articleId }
+    )
+  } catch (err) {
+    console.error(`Error fetching approved comments for article "${articleId}" from Sanity:`, err)
+    return []
   }
 }
