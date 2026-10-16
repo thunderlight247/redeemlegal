@@ -35,6 +35,7 @@ export const books: Book[] = [
     author: "Caleb Dickens",
     blurb:
       "Guidance on tackling unseen comprehension passages in school and examinations such as the BECE and WASSCE.",
+    cover: { src: "/images/book-comprehension-hints.jpg", w: 913, h: 621 },
   },
   {
     title: "Incisive B.E.C.E English Language Past Questions and Answers, 2013-2020",
