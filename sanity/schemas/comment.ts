@@ -27,7 +27,7 @@ const comment = {
       name: 'approved',
       title: 'Approved',
       type: 'boolean',
-      initialValue: false,
+      initialValue: true,
     },
     {
       name: 'article',

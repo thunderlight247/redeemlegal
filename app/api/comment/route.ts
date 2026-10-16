@@ -88,7 +88,7 @@ export async function POST(request: Request) {
       name: trimmedName,
       ...(trimmedEmail ? { email: trimmedEmail } : {}),
       comment: trimmedComment,
-      approved: false,
+      approved: true,
       article: {
         _type: 'reference',
         _ref: trimmedArticleId,
@@ -103,5 +103,5 @@ export async function POST(request: Request) {
     )
   }
 
-  return NextResponse.json({ message: 'Comment submitted for approval!' }, { status: 201 })
+  return NextResponse.json({ message: 'Comment posted successfully!' }, { status: 201 })
 }

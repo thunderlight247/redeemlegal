@@ -42,15 +42,15 @@ The dataset is queried publicly, so published content can be read without a
 token. Do not add a Sanity write token to `NEXT_PUBLIC_*` variables or commit
 `.env.local`.
 
-### Moderated article comments
+### Article comments
 
 Create a Sanity API token with write access to the content dataset and set it as
 the server-only `SANITY_API_WRITE_TOKEN` environment variable in `.env.local`
 and in the production deployment environment. Never use a `NEXT_PUBLIC_`
-prefix for this token. Restart or redeploy after setting it. Public submissions
-are stored as unapproved comments; review them in Studio and set **Approved**
-to publish them on the article page. Email addresses are optional and are not
-shown publicly.
+prefix for this token. Restart or redeploy after setting it. New public
+submissions are approved and appear immediately. You can turn off **Approved**
+for any comment in Studio to hide it from the article page. Email addresses are
+optional and are not shown publicly.
 
 ## Structure
 

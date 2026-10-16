@@ -38,7 +38,7 @@ export default function CommentForm({ articleId }: CommentFormProps) {
       }
 
       form.reset()
-      setMessage(result.message || 'Comment submitted for approval!')
+      setMessage(result.message || 'Comment posted successfully!')
     } catch (error) {
       setIsError(true)
       setMessage(error instanceof Error ? error.message : 'We could not submit your comment.')
