@@ -44,7 +44,7 @@ export default async function HomePage() {
         <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-1/2 hidden h-[36rem] w-[36rem] -translate-y-1/2 rounded-full border border-gold/15 lg:block" />
         <div className="wrap relative grid items-center gap-12 py-16 md:py-24 lg:grid-cols-12 lg:py-28">
           <Reveal stagger className="lg:col-span-7">
-            <p className="eyebrow">Ashaiman, Greater Accra · Ghana</p>
+            <p className="eyebrow">Tema, Greater Accra · Ghana</p>
             <h1 className="h-display mt-5 text-[2.6rem] sm:text-6xl lg:text-[4.4rem]">
               Professional Documentation Services. Clear Guidance. Dependable Support.
             </h1>
