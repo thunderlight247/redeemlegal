@@ -32,32 +32,66 @@ export const navLinks = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
-const mapsSearch = (q: string) =>
-  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+export type OfficeLocation = {
+  id: string;
+  name: string;
+  branchBadge: string;
+  area: string;
+  detail: string;
+  landmarks: string;
+  transitRoutes: string;
+  mapsHref: string;
+  isHeadOffice?: boolean;
+};
 
-/** Offices. Maps links are text searches, not verified Business Profile URLs. */
-export const offices = [
+/** Offices with direct Google Maps pins and wayfinding landmark details */
+export const offices: OfficeLocation[] = [
   {
-    name: "Main office",
-    area: "Ashaiman",
-    detail: "Inside the Ashaiman Old District Court",
-    mapsHref: site.mapsHref,
+    id: "main-office",
+    name: "Main Office",
+    branchBadge: "Head Office · Court Complex",
+    area: "Ashaiman Central",
+    detail: "Inside the Ashaiman Old District Court, Ashaiman, Greater Accra",
+    landmarks: "Located directly inside the Ashaiman Old District Court premises, near the Ashaiman Police Station and Municipal Assembly, just off the main market traffic light junction.",
+    transitRoutes: "Easily reached from Ashaiman Overhead, Newtown, Valco Flat, Lebanon, and Tema Motorway Roundabout. Shared taxis and trotros drop at the court junction.",
+    mapsHref: "https://www.google.com/maps/search/?api=1&query=Ashaiman+Old+District+Court+Ashaiman+Ghana",
+    isHeadOffice: true,
   },
   {
-    name: "Goshen office",
+    id: "goshen-branch",
+    name: "Goshen Branch",
+    branchBadge: "Branch Office · Sebrepor",
     area: "Sebrepor, Ashaiman",
-    detail: "Goshen, opposite Ebenezer Hill Basic School, Sebrepor",
-    mapsHref: mapsSearch("Redeem Publication and Legal Consult Goshen Ebenezer Hill Basic School Sebrepor Ashaiman"),
+    detail: "Goshen, opposite Ebenezer Hill Basic School, Sebrepor, Greater Accra",
+    landmarks: "Located in Goshen along the Sebrepor main corridor, directly opposite the entrance gate of Ebenezer Hill Basic School.",
+    transitRoutes: "Best for clients coming from Golf City, Bediako, New Jerusalem, Sebrepor, and Afienya. Board any Sebrepor-bound trotro or taxi and alight opposite Ebenezer Hill School.",
+    mapsHref: "https://maps.app.goo.gl/NPg4aPUDtjzoBo8e9",
+    isHeadOffice: false,
   },
   {
-    name: "Tema office",
-    area: "Tema",
-    detail: "Michel Camp, Barracks Market",
-    mapsHref: mapsSearch("Redeem Publication and Legal Consult Michel Camp Barracks Market Tema"),
+    id: "tema-branch",
+    name: "Tema / Michel Camp Branch",
+    branchBadge: "Branch Office · Market Area",
+    area: "Michel Camp / Tema",
+    detail: "Michel Camp, Barracks Market, along Tema-Akosombo Road",
+    landmarks: "Positioned within the active Michel Camp Barracks Market area, close to the military barracks main gate and market square.",
+    transitRoutes: "Most accessible for military personnel, Tema Community 25, Kpone, Dawhenya, and Afienya commuters. Alight at the Michel Camp Market Gate along the highway.",
+    mapsHref: "https://maps.app.goo.gl/2wXKuZsQvfpQcuFS7",
+    isHeadOffice: false,
   },
-] as const;
+];
 
-export const areasServed = ["Ashaiman", "Tema", "Sakumono", "Golf City", "Bediako", "Afienya", "Dawhenya"] as const;
+export const areasServed = [
+  "Ashaiman",
+  "Tema",
+  "Sakumono",
+  "Golf City",
+  "Bediako",
+  "Afienya",
+  "Dawhenya",
+  "Within Ghana",
+  "Overseas Clients",
+] as const;
 
 export const languages = ["English", "Twi", "Ga"] as const;
 

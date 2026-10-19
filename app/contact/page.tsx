@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock, Mail, MessageCircle, Phone } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import EnquiryBuilder from "@/components/EnquiryBuilder";
-import { areasServed, languages, offices, site, socials, whatsappLink } from "@/lib/site";
+import MapSection from "@/components/MapSection";
+import { languages, site, socials, whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact and Offices",
@@ -68,31 +69,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="wrap py-16 md:py-20">
-          <Reveal className="max-w-2xl">
-            <p className="eyebrow">Our offices</p>
-            <h2 className="h-display mt-3 text-4xl">Find the Office Nearest You</h2>
-          </Reveal>
-          <Reveal stagger className="mt-10 grid gap-6 md:grid-cols-3">
-            {offices.map((o) => (
-              <div key={o.name} className="border border-line p-6">
-                <MapPin className="h-6 w-6 text-gold-deep" strokeWidth={1.5} aria-hidden="true" />
-                <h3 className="mt-4 font-display text-2xl font-semibold">{o.name}</h3>
-                <p className="mt-1 text-sm font-medium">{o.area}</p>
-                <p className="mt-1 text-sm text-muted">{o.detail}</p>
-                <a href={o.mapsHref} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm font-semibold text-gold-deep underline underline-offset-4">
-                  Search on Google Maps<span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              </div>
-            ))}
-          </Reveal>
-          <Reveal className="mt-12 border-t border-line pt-8">
-            <h3 className="font-display text-2xl font-semibold">Areas We Serve</h3>
-            <p className="mt-2 text-sm text-muted">Clients regularly visit from {areasServed.join(", ")} and the surrounding communities.</p>
-          </Reveal>
-        </div>
-      </section>
+      <MapSection />
     </>
   );
 }

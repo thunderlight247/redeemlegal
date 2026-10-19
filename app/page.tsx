@@ -265,15 +265,28 @@ export default async function HomePage() {
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Near you</p>
             <h2 className="h-display mt-4 text-4xl md:text-5xl">Offices in Ashaiman and Tema</h2>
-            <p className="mt-4 text-muted">Serving {areasServed.join(", ")} and surrounding communities.</p>
+            <p className="mt-4 text-muted">Serving {areasServed.slice(0, 7).join(", ")}, nationwide within Ghana, and overseas clients.</p>
           </Reveal>
           <Reveal stagger className="mt-10 grid gap-6 md:grid-cols-3">
             {offices.map((o) => (
               <div key={o.name} className="flex gap-4 border-t border-gold pt-5">
                 <MapPin className="mt-1 h-5 w-5 shrink-0 text-gold-deep" strokeWidth={1.5} aria-hidden="true" />
-                <div>
-                  <h3 className="font-display text-2xl font-semibold">{o.name}</h3>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="font-display text-2xl font-semibold">{o.name}</h3>
+                    <span className="rounded bg-sand/60 px-2 py-0.5 text-[0.68rem] font-semibold uppercase text-gold-deep">
+                      {o.area}
+                    </span>
+                  </div>
                   <p className="mt-1 text-sm text-muted">{o.detail}</p>
+                  <a
+                    href={o.mapsHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2.5 inline-flex items-center gap-1 text-xs font-semibold text-gold-deep hover:underline"
+                  >
+                    Google Maps Directions →
+                  </a>
                 </div>
               </div>
             ))}
