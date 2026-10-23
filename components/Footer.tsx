@@ -71,7 +71,10 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="wrap flex flex-col gap-3 py-6 text-xs text-white/50 md:flex-row md:justify-between">
-          <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+          <div>
+            <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+            <p className="mt-1 text-white/40">Developed by Light</p>
+          </div>
           <p className="max-w-xl">
             Information on this website is general and is not legal advice. Redeem is a paralegal and Commissioner for Oaths consult, not a law firm. This is the website of a private business, not an official government website. Redeem is not the publisher of the Ghana Gazette and does not decide whether any document is accepted by an official body.
           </p>

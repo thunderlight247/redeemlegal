@@ -13,6 +13,7 @@ import { site } from "@/lib/site";
 import Photo from "@/components/Photo";
 import Books from "@/components/Books";
 import HandbookFeature from "@/components/HandbookFeature";
+import BusinessRegistrationDetails from "@/components/BusinessRegistrationDetails";
 import { tc } from "@/lib/text";
 import { images } from "@/lib/images";
 
@@ -53,6 +54,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
             {service.slug === "book-writing-and-publishing" ? <Books /> : null}
             {service.slug === "paralegal-consultation-and-training" ? <HandbookFeature /> : null}
+            {service.slug === "business-registration" ? <BusinessRegistrationDetails /> : null}
 
             <Reveal>
               <h2 className="h-display text-3xl md:text-4xl">What This Generally Concerns</h2>

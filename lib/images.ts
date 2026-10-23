@@ -6,6 +6,7 @@ export const images = {
   cta: "/images/gavel.jpg",
   office: "/images/office-wall.jpg",
   services: {
+    "business-registration": "/images/business-registration-certificate.jpg",
     "affidavits-and-statutory-declarations": "/images/stamp-commissioner-for-oaths.jpg",
     "deeds-and-power-of-attorney": "/images/power-of-attorney-gavel.jpg",
     "gazette-related-services": "/images/gavel-on-files.jpg",

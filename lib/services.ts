@@ -378,7 +378,7 @@ export const services: Service[] = [
       "Undertaking and promissory note",
       "Car work-and-pay agreement",
       "Change of company name",
-      "Business and company registration (supporting documentation)",
+      "Business and company registration (see dedicated Business Registration service)",
     ],
     short:
       "Help preparing written agreements and the supporting paperwork for business and company matters.",
@@ -406,7 +406,81 @@ export const services: Service[] = [
     enquiry:
       "Hello Redeem Publication and Legal Consult, I would like to enquire about a contract, agreement or business document.",
     related: [
+      "business-registration",
       "property-land-and-vehicle-documents",
+      "publication-filing-and-documentation",
+    ],
+  },
+  {
+    slug: "business-registration",
+    title: "Business Registration",
+    icon: "ClipboardList",
+    documentsLabel: "Registrations & Filings We Assist With",
+    documents: [
+      "Limited Liability Company (LTD)",
+      "Sole Proprietorship registration",
+      "TIN (Tax Identification Number) registration",
+      "Business name search and reservation",
+      "Partnership registration",
+      "Change of company or business name",
+      "Annual renewal and ORC filings",
+    ],
+    exhibits: [
+      {
+        src: "/images/business-registration-certificate.jpg",
+        w: 846,
+        h: 1024,
+        alt: "Need Business Registration Certificate - Ghana Certificate of Incorporation and Certificate to Commence Business",
+        caption:
+          "Official Registrar General / ORC Ghana business registration certificates (Certificate of Incorporation and Certificate to Commence Business) processed for clients.",
+      },
+      {
+        src: "/images/sample-birth-certificate.jpg",
+        w: 720,
+        h: 1280,
+        alt: "Certified copy of entry in register of births (Ghana birth certificate) with personal details covered",
+        caption:
+          "Sample Ghana birth certificate required to verify date of birth, place of birth, and parentage during registration. Personal details are covered.",
+      },
+      {
+        src: "/images/ghana-passport-sample.jpg",
+        w: 194,
+        h: 227,
+        alt: "Republic of Ghana passport for applicant identification",
+        caption:
+          "Valid Ghanaian passport or Ghana Card used for official identification of business owners and directors.",
+      },
+    ],
+    short:
+      "Official business and company registration in Ghana. Limited Company, Sole Proprietorship, and TIN registration with regular and express processing.",
+    intro:
+      "Registering your business establishes legal recognition in Ghana, protects your trading name, and allows you to open corporate bank accounts. Redeem assists individuals, entrepreneurs, and companies through the complete registration process with the Office of the Registrar of Companies (ORC).",
+    concerns: [
+      "We handle both Limited Liability Company (LTD with directors and shareholders) and Sole Proprietorship (single-owner enterprise) registrations, offering standard (20 working days) and express (5 days) options.",
+      "A Tax Identification Number (TIN) is mandatory for business registration. If you or any director does not have a TIN, Redeem assists with TIN registration for GHC 100.00.",
+      "We compile all 15 required intake details, conduct name search and reservation with the ORC, provide Commissioner for Oaths witnessing, and secure your Certificate of Incorporation and Certificate to Commence Business.",
+    ],
+    questions: [
+      "What is the pricing for Limited Company vs Sole Proprietorship registration?",
+      "How fast is express processing compared to standard processing?",
+      "What 15 details and documents must the business owner provide?",
+      "What if I do not have a Tax Identification Number (TIN)?",
+      "Can Ghanaians in the diaspora or foreign residents register a business in Ghana through Redeem?",
+    ],
+    confirm: [
+      "Proposed business name and alternative names for search reservation",
+      "Detailed commercial activities of the enterprise",
+      "Owner and director personal details, TIN numbers, and contact information",
+      "Digital Address (GhanaPost GPS) and physical location of principal place of business",
+      "Specimen signature image and mother's maiden name for statutory filing",
+    ],
+    note:
+      "Business and company registration certificates are issued by the Office of the Registrar of Companies (ORC). Redeem facilitates name search, document preparation, Commissioner for Oaths commissioning, filing, and processing.",
+    enquiry:
+      "Hello Redeem Publication and Legal Consult, I would like to enquire about business registration.",
+    related: [
+      "contracts-agreements-and-business-documents",
+      "diaspora-documentation-assistance",
       "publication-filing-and-documentation",
     ],
   },
