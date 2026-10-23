@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { areasServed, site, socials } from "@/lib/site";
 import Header from "@/components/Header";
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main">{children}</main>
           <Footer />
         </SmoothScroll>
+        <GoogleAnalytics gaId="G-TRW33SK87E" />
       </body>
     </html>
   );
