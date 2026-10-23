@@ -3,7 +3,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import Reveal from "@/components/Reveal";
 import { site } from "@/lib/site";
 
-const pricingPackages = [
+const registrationPackages = [
   {
     type: "Limited Company (LTD)",
     icon: Building2,
@@ -13,13 +13,11 @@ const pricingPackages = [
       {
         speed: "Standard Processing",
         days: "20 Working Days",
-        price: "GHS 2,000.00",
         highlight: false,
       },
       {
         speed: "Express Processing",
         days: "5 Working Days",
-        price: "GHS 3,500.00",
         highlight: true,
       },
     ],
@@ -33,13 +31,11 @@ const pricingPackages = [
       {
         speed: "Standard Processing",
         days: "20 Working Days",
-        price: "GHC 800.00",
         highlight: false,
       },
       {
         speed: "Express Processing",
         days: "5 Working Days",
-        price: "GHC 1,400.00",
         highlight: true,
       },
     ],
@@ -104,17 +100,17 @@ DETAILS FOR BUSINESS REGISTRATION:
 14. Picture of Signature: 
 15. Mother's Name: 
 
-Please advise on next steps.`;
+Please advise on fee quotation and next steps.`;
 
   return (
     <div className="space-y-12">
-      {/* Pricing and Packages Section */}
+      {/* Registration Packages & Timelines Section */}
       <Reveal>
         <div className="border border-line bg-white p-6 sm:p-8">
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-line pb-6">
             <div>
               <span className="text-xs font-semibold uppercase tracking-wider text-gold-deep">Official Packages</span>
-              <h2 className="h-display mt-1 text-2xl sm:text-3xl">Business Registration Pricing & Timelines</h2>
+              <h2 className="h-display mt-1 text-2xl sm:text-3xl">Business Registration Packages & Timelines</h2>
             </div>
             <div className="inline-flex items-center gap-1.5 rounded-full bg-ivory px-3.5 py-1 text-xs font-medium text-ink border border-line">
               <Clock className="h-3.5 w-3.5 text-gold-deep" />
@@ -123,7 +119,7 @@ Please advise on next steps.`;
           </div>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {pricingPackages.map((pkg) => {
+            {registrationPackages.map((pkg) => {
               const Icon = pkg.icon;
               return (
                 <div key={pkg.type} className="flex flex-col justify-between rounded border border-line bg-ivory/60 p-6 transition-all hover:border-gold">
@@ -157,14 +153,11 @@ Please advise on next steps.`;
                             ) : (
                               <Clock className="h-4 w-4 text-muted shrink-0" />
                             )}
-                            <div>
-                              <div className="text-xs font-medium text-muted">{t.speed}</div>
-                              <div className="text-xs text-ink/80">{t.days}</div>
-                            </div>
+                            <span className="text-xs font-medium text-ink">{t.speed}</span>
                           </div>
-                          <div className="text-right">
-                            <span className="font-display text-base font-bold text-ink">{t.price}</span>
-                          </div>
+                          <span className="rounded bg-ivory border border-line px-2.5 py-1 text-xs font-semibold text-gold-deep">
+                            {t.days}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -181,12 +174,11 @@ Please advise on next steps.`;
                 <span className="font-semibold text-gold-light text-sm sm:text-base">TIN Number Registration Requirement</span>
               </div>
               <p className="text-xs text-white/80">
-                A Tax Identification Number (TIN) is mandatory for registering your business. The client shall pay{" "}
-                <strong className="text-white font-bold">GHC 100.00</strong> for TIN NUMBER Registration if he or she doesn&apos;t have one.
+                A Tax Identification Number (TIN) is mandatory for registering your business with the ORC. If you do not have one, Redeem can assist you to obtain your TIN.
               </p>
             </div>
-            <span className="shrink-0 rounded bg-gold/20 px-3 py-1 font-display text-sm font-semibold text-gold-light border border-gold/30">
-              GHC 100.00
+            <span className="shrink-0 rounded bg-gold/20 px-3 py-1 font-display text-xs font-semibold text-gold-light border border-gold/30">
+              Assistance Available
             </span>
           </div>
         </div>
@@ -237,7 +229,7 @@ Please advise on next steps.`;
           <div className="mt-8 rounded bg-ivory p-6 border border-line">
             <h4 className="font-display text-lg font-semibold text-ink">Ready to Submit Your Details?</h4>
             <p className="mt-1 text-xs text-muted leading-relaxed">
-              You can send the checklist directly to Redeem Legal Consult via WhatsApp or email. Our team will verify the details, confirm the processing fee, and start the ORC filing immediately.
+              You can send the checklist directly to Redeem Legal Consult via WhatsApp or email. Our team will verify the details, provide a fee quote, and start the ORC filing immediately.
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-4">
               <WhatsAppButton

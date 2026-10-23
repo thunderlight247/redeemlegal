@@ -457,11 +457,11 @@ export const services: Service[] = [
       "Registering your business establishes legal recognition in Ghana, protects your trading name, and allows you to open corporate bank accounts. Redeem assists individuals, entrepreneurs, and companies through the complete registration process with the Office of the Registrar of Companies (ORC).",
     concerns: [
       "We handle both Limited Liability Company (LTD with directors and shareholders) and Sole Proprietorship (single-owner enterprise) registrations, offering standard (20 working days) and express (5 days) options.",
-      "A Tax Identification Number (TIN) is mandatory for business registration. If you or any director does not have a TIN, Redeem assists with TIN registration for GHC 100.00.",
+      "A Tax Identification Number (TIN) is mandatory for business registration. If you or any director does not have a TIN, Redeem can assist you to obtain one.",
       "We compile all 15 required intake details, conduct name search and reservation with the ORC, provide Commissioner for Oaths witnessing, and secure your Certificate of Incorporation and Certificate to Commence Business.",
     ],
     questions: [
-      "What is the pricing for Limited Company vs Sole Proprietorship registration?",
+      "What are the options and timelines for Limited Company vs Sole Proprietorship registration?",
       "How fast is express processing compared to standard processing?",
       "What 15 details and documents must the business owner provide?",
       "What if I do not have a Tax Identification Number (TIN)?",
