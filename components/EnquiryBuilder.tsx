@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MessageCircle, ShieldAlert } from "lucide-react";
+import { sendGAEvent } from "@next/third-parties/google";
 import { services } from "@/lib/services";
 import { whatsappLink } from "@/lib/site";
 
@@ -38,7 +39,13 @@ export default function EnquiryBuilder() {
           <label htmlFor="name" className="mb-1.5 block text-sm font-medium">Your name <span className="font-normal text-muted">(optional)</span></label>
           <input id="name" value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" className="w-full border border-line px-3 py-3 text-sm" />
         </div>
-        <a href={whatsappLink(message)} target="_blank" rel="noopener noreferrer" className="btn btn-dark w-full">
+        <a
+          href={whatsappLink(message)}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => sendGAEvent("event", "whatsapp_click", { value: "whatsapp_contact" })}
+          className="btn btn-dark w-full"
+        >
           <MessageCircle className="h-4 w-4" aria-hidden="true" /> Open WhatsApp with This Message
           <span className="sr-only"> (opens in a new tab)</span>
         </a>

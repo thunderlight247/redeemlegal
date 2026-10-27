@@ -1,4 +1,7 @@
+"use client";
+
 import { MessageCircle } from "lucide-react";
+import { sendGAEvent } from "@next/third-parties/google";
 import { whatsappLink } from "@/lib/site";
 
 type Props = {
@@ -14,6 +17,7 @@ export default function WhatsAppButton({ message, variant = "gold", children = "
       href={whatsappLink(message)}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => sendGAEvent("event", "whatsapp_click", { value: "whatsapp_contact" })}
       className={`btn btn-${variant} ${className}`}
     >
       <MessageCircle className="h-4 w-4" aria-hidden="true" />

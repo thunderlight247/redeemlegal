@@ -1,4 +1,7 @@
+"use client";
+
 import { Compass, ExternalLink, MapPin, MessageCircle, Navigation, ShieldCheck } from "lucide-react";
+import { sendGAEvent } from "@next/third-parties/google";
 import Reveal from "@/components/Reveal";
 import { areasServed, offices, whatsappLink } from "@/lib/site";
 
@@ -130,6 +133,7 @@ export default function MapSection() {
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => sendGAEvent("event", "whatsapp_click", { value: "whatsapp_contact" })}
                   className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-line bg-white py-2 text-xs font-medium text-slate-700 transition-colors hover:border-gold hover:text-gold-deep"
                 >
                   <MessageCircle className="h-3.5 w-3.5 text-gold-deep" aria-hidden="true" />

@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { sendGAEvent } from "@next/third-parties/google";
 import Logo from "./Logo";
 import CoatOfArms from "./CoatOfArms";
 import { navLinks, offices, site, socials, whatsappLink } from "@/lib/site";
@@ -45,7 +48,18 @@ export default function Footer() {
           <p className="eyebrow eyebrow-light mb-4">Contact</p>
           <ul className="space-y-3 text-sm">
             <li><a href={site.phoneHref} className="flex items-center gap-2 hover:text-gold-light"><Phone className="h-4 w-4 text-gold" aria-hidden="true" />{site.phoneDisplay}</a></li>
-            <li><a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-gold-light"><MessageCircle className="h-4 w-4 text-gold" aria-hidden="true" />WhatsApp enquiry</a></li>
+            <li>
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => sendGAEvent("event", "whatsapp_click", { value: "whatsapp_contact" })}
+                className="flex items-center gap-2 hover:text-gold-light"
+              >
+                <MessageCircle className="h-4 w-4 text-gold" aria-hidden="true" />
+                WhatsApp enquiry
+              </a>
+            </li>
             {offices.map((o) => (
               <li key={o.name} className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
